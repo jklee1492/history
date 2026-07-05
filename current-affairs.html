@@ -41,10 +41,6 @@
       text-underline-offset: 4px;
     }
 
-    .breadcrumb span {
-      color: white;
-    }
-
     .sub-menu {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -66,12 +62,10 @@
       transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
     }
 
-    .sub-card:hover,
-    .sub-card:focus-visible {
+    .sub-card:hover {
       transform: translateY(-4px);
       border-color: rgba(110, 195, 255, 0.95);
       background: rgba(12, 50, 88, 0.88);
-      outline: none;
     }
 
     .sub-card h3 {
@@ -134,12 +128,13 @@
 <body>
   <div class="page-wrap">
 
-  <div class="breadcrumb">
+    <div class="breadcrumb">
       <a href="index.html">Home</a>
       <span>/ Current Affairs</span>
     </div>
 
     <main class="sub-menu">
+
       <a class="sub-card" href="global-news.html">
         <h3>Global News</h3>
         <p>세계 주요 뉴스</p>
@@ -160,7 +155,7 @@
         <p>기술 변화와 산업</p>
       </a>
 
-       <a class="sub-card" href="energy.html">
+      <a class="sub-card" href="energy.html">
         <h3>Energy</h3>
         <p>에너지와 자원</p>
       </a>
@@ -174,8 +169,25 @@
         <h3>Marine Research</h3>
         <p>해양 조사</p>
       </a>
+
+      <a class="sub-card" href="marine-research.html">
+        <h3>Marine Research</h3>
+        <p>해양 조사</p>
+      </a>
+
+      <!-- 
+        새 항목 추가는 반드시 여기, </main> 위에 넣으세요.
+
+        <a class="sub-card" href="새파일.html">
+          <h3>새 버튼 제목</h3>
+          <p>새 버튼 설명</p>
+        </a>
+      -->
+
     </main>
-      <a class="back-button" href="index.html">← Back</a>
-   </div>
+
+    <a class="back-button" href="index.html">← Back</a>
+
+  </div>
 </body>
 </html>
