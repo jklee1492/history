@@ -16,11 +16,14 @@
     }
 
     body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Arial, Helvetica, sans-serif;
+      color: #fff;
+    
       background:
-        linear-gradient(rgba(3, 11, 21, .55), rgba(3, 11, 21, .72)),
-        radial-gradient(circle at 75% 35%, rgba(68, 132, 185, .35), transparent 34%),
-        linear-gradient(135deg, #07111d 0%, #10233b 44%, #25364a 100%);
-      background-attachment: fixed;
+        linear-gradient(rgba(3, 11, 21, .45), rgba(3, 11, 21, .60)),
+        url("home_background.png") center / cover no-repeat fixed;
     }
 
     header {
@@ -98,12 +101,12 @@
 
     .breadcrumb {
       display: none;
-      margin: 0 auto 22px;
+      margin: 0 auto 28px;
       max-width: 980px;
-      font-size: 15px;
-      font-weight: 700;
-      color: rgba(255,255,255,.84);
-    }
+      font-size: 22px;
+      font-weight: 900;
+      color: rgba(255,255,255,.95);
+    }  
 
     .breadcrumb button {
       border: 0;
@@ -166,12 +169,13 @@
     }
 
     .back button {
-      border: 1px solid rgba(255,255,255,.38);
-      background: rgba(7,17,29,.72);
+      border: 1px solid rgba(255,255,255,.55);
+      background: rgba(7,17,29,.82);
       color: white;
       border-radius: 8px;
-      padding: 12px 18px;
-      font-weight: 800;
+      padding: 16px 24px;
+      font-size: 18px;
+      font-weight: 900;
       cursor: pointer;
     }
 
@@ -215,10 +219,11 @@
 
   <main>
     <section class="hero">
-      <p class="eyebrow" id="eyebrow">Knowledge Archive</p>
-      <h1 id="title">Three-Level<br>Homepage</h1>
+      <p class="eyebrow" id="eyebrow">What is Economics?</p>
+      <h1 id="title">Economics<br>for Real Life</h1>
       <p class="subtitle" id="subtitle">
-        시사, 경제, 천문, 생물학, 지리학, 역사학을 3단 구조로 정리한 홈페이지입니다.
+        From Micro, Macro, International and Economic History<br>
+        A Systematically Organized Space for Economics.
       </p>
     </section>
 
