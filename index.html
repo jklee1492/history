@@ -342,21 +342,20 @@
         </button>`;
     }
 
-    function renderHome() {
+        function renderHome() {
       current = { level: 1, category: null, sub: null };
-      document.getElementById("eyebrow").textContent = "Knowledge Archive";
-      document.getElementById("title").innerHTML = "Three-Level<br>Homepage";
-      document.getElementById("subtitle").textContent =
-        "시사, 경제, 천문, 생물학, 지리학, 역사학을 3단 구조로 정리한 홈페이지입니다.";
+      document.getElementById("eyebrow").textContent = "What is Economics?";
+      document.getElementById("title").innerHTML = "Economics<br>for Real Life";
+      document.getElementById("subtitle").innerHTML =
+        "From Micro, Macro, International and Economic History<br>A Systematically Organized Space for Economics.";
       document.getElementById("breadcrumb").style.display = "none";
       document.getElementById("back").style.display = "none";
-
+    
       const grid = document.getElementById("grid");
       grid.innerHTML = Object.entries(data).map(([key, item]) =>
         cardHTML(item.title, `${item.ko} · ${item.desc}`, `renderSecond('${key}')`)
       ).join("");
     }
-
     function renderSecond(categoryKey) {
       const item = data[categoryKey];
       current = { level: 2, category: categoryKey, sub: null };
