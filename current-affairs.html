@@ -1,38 +1,113 @@
 <!doctype html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Current Affairs | JK Economics</title>
-
   <style>
-    * {
-      box-sizing: border-box;
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      min-height: 100%;
+      font-family: Arial, Helvetica, sans-serif;
+      color: #fff;
+      background: #07111d;
     }
 
     body {
-      margin: 0;
       min-height: 100vh;
-      font-family: Arial, Helvetica, sans-serif;
-      color: white;
       background:
-        linear-gradient(90deg, rgba(2, 10, 22, 0.52), rgba(2, 12, 28, 0.16) 54%, rgba(2, 10, 20, 0.3)),
-        linear-gradient(180deg, rgba(0, 10, 24, 0.1), rgba(0, 10, 24, 0.58)),
-        url("home_background.png") center / cover fixed no-repeat;
+        linear-gradient(rgba(3, 11, 21, .45), rgba(3, 11, 21, .60)),
+        url("home_background.png") center / cover no-repeat fixed;
     }
 
-    .page-wrap {
-      width: min(1180px, calc(100% - 48px));
-      margin: 0 auto;
-      padding: 36px 0 80px;
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      min-height: 74px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 0 44px;
+      background: rgba(3, 10, 18, .92);
+      border-bottom: 1px solid rgba(255,255,255,.08);
+      box-shadow: 0 8px 24px rgba(0,0,0,.25);
+    }
+
+    .brand {
+      font-size: 34px;
+      font-weight: 900;
+      letter-spacing: -.5px;
+      color: white;
+      text-decoration: none;
+      text-shadow: 0 2px 8px rgba(0,0,0,.6);
+      white-space: nowrap;
+    }
+
+    nav {
+      display: flex;
+      gap: 24px;
+      align-items: center;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      font-size: 15px;
+      font-weight: 800;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      opacity: .95;
+    }
+
+    nav a:hover {
+      opacity: 1;
+      text-decoration: underline;
+    }
+
+    main {
+      min-height: calc(100vh - 74px);
+      padding: 66px 64px 80px;
+    }
+
+    .hero {
+      max-width: 780px;
+      margin-bottom: 54px;
+    }
+
+    .eyebrow {
+      font-size: 22px;
+      font-weight: 700;
+      margin: 0 0 22px;
+      text-shadow: 0 2px 7px rgba(0,0,0,.6);
+    }
+
+    h1 {
+      margin: 0 0 22px;
+      font-size: clamp(48px, 6vw, 82px);
+      line-height: .95;
+      font-weight: 900;
+      letter-spacing: -2px;
+      text-shadow: 0 4px 12px rgba(0,0,0,.65);
+    }
+
+    .subtitle {
+      font-size: 20px;
+      line-height: 1.55;
+      max-width: 780px;
+      font-weight: 700;
+      text-shadow: 0 2px 8px rgba(0,0,0,.7);
     }
 
     .breadcrumb {
-      margin: 0 0 22px;
-      font-size: clamp(20px, 2vw, 28px);
+      margin: 0 auto 28px;
+      max-width: 980px;
+      font-size: 22px;
       font-weight: 900;
-      text-shadow: 0 3px 5px rgba(0, 0, 0, 0.65);
+      color: rgba(255,255,255,.95);
     }
 
     .breadcrumb a {
@@ -41,153 +116,167 @@
       text-underline-offset: 4px;
     }
 
-    .sub-menu {
+    .grid {
+      width: min(980px, 100%);
+      margin: 0 auto;
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 12px;
+      grid-template-columns: repeat(3, minmax(220px, 1fr));
+      gap: 14px;
     }
 
-    .sub-card {
-      min-height: 88px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 22px 26px;
+    .card {
+      min-height: 116px;
+      padding: 24px 24px;
+      border-radius: 10px;
+      border: 1px solid rgba(230, 242, 255, .35);
+      background: linear-gradient(135deg, rgba(10, 35, 65, .86), rgba(20, 48, 77, .68));
+      box-shadow: 0 14px 28px rgba(0,0,0,.24);
       color: white;
+      text-align: left;
       text-decoration: none;
-      border: 1px solid rgba(255, 255, 255, 0.45);
-      border-radius: 8px;
-      background: rgba(5, 27, 55, 0.78);
-      box-shadow: inset 0 0 18px rgba(80, 170, 255, 0.08);
-      transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
+      transition: transform .16s ease, background .16s ease, border-color .16s ease;
     }
 
-    .sub-card:hover {
-      transform: translateY(-4px);
-      border-color: rgba(110, 195, 255, 0.95);
-      background: rgba(12, 50, 88, 0.88);
+    .card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(255,255,255,.75);
+      background: linear-gradient(135deg, rgba(18, 55, 95, .94), rgba(30, 70, 105, .76));
     }
 
-    .sub-card h3 {
-      margin: 0 0 9px;
-      font-size: clamp(24px, 2.3vw, 33px);
-      line-height: 1.1;
+    .card h2 {
+      margin: 0 0 12px;
+      font-size: 24px;
+      line-height: 1.05;
       font-weight: 900;
-      text-shadow:
-        -1px -1px 0 rgba(0,0,0,.75),
-         1px -1px 0 rgba(0,0,0,.75),
-        -1px  1px 0 rgba(0,0,0,.75),
-         1px  1px 0 rgba(0,0,0,.75),
-         0 3px 5px rgba(0,0,0,.7);
+      text-shadow: 0 2px 6px rgba(0,0,0,.5);
     }
 
-    .sub-card p {
+    .card p {
       margin: 0;
-      font-size: clamp(14px, 1.2vw, 17px);
-      line-height: 1.4;
-      font-weight: 800;
-      text-shadow: 0 2px 4px rgba(0,0,0,.65);
+      font-size: 15px;
+      line-height: 1.45;
+      font-weight: 650;
     }
 
-    .back-button {
+    .back-link {
       display: inline-block;
-      margin-top: 22px;
-      padding: 14px 26px;
+      margin: 28px auto 0;
       color: white;
       text-decoration: none;
+      border: 1px solid rgba(255,255,255,.55);
+      background: rgba(7,17,29,.82);
+      border-radius: 8px;
+      padding: 16px 24px;
       font-size: 18px;
       font-weight: 900;
-      border: 1px solid rgba(255, 255, 255, 0.75);
-      border-radius: 7px;
-      background: rgba(0, 14, 31, 0.72);
     }
 
-    .back-button:hover {
-      background: rgba(255, 255, 255, 0.16);
+    footer {
+      padding: 26px 44px;
+      color: rgba(255,255,255,.72);
+      background: rgba(3, 10, 18, .9);
+      font-size: 13px;
     }
 
     @media (max-width: 900px) {
-      .sub-menu {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
+      header { padding: 16px 22px; align-items: flex-start; flex-direction: column; }
+      nav { gap: 12px; font-size: 13px; justify-content: flex-start; }
+      main { padding: 46px 22px 64px; }
+      .grid { grid-template-columns: repeat(2, minmax(180px, 1fr)); }
     }
 
-    @media (max-width: 620px) {
-      .page-wrap {
-        width: min(100% - 32px, 1180px);
-        padding-top: 28px;
-      }
-
-      .sub-menu {
-        grid-template-columns: 1fr;
-      }
+    @media (max-width: 560px) {
+      .brand { font-size: 28px; }
+      .grid { grid-template-columns: 1fr; }
+      .card { min-height: 104px; }
     }
   </style>
 </head>
-
 <body>
-  <div class="page-wrap">
-
-    <div class="breadcrumb">
+  <header>
+    <a class="brand" href="index.html">JK Economics</a>
+    <nav>
       <a href="index.html">Home</a>
-      <span>/ Current Affairs</span>
+      <a href="current-affairs.html">Current Affairs</a>
+      <a href="economics.html">Economics</a>
+      <a href="astronomy.html">Astronomy</a>
+      <a href="biology.html">Biology</a>
+      <a href="geography.html">Geography</a>
+      <a href="history.html">History</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="breadcrumb">
+      <a href="index.html">Home</a> / Current Affairs
     </div>
 
-    <main class="sub-menu">
+    <section class="hero">
+      <p class="eyebrow">Current Affairs</p>
+      <h1>Current Affairs</h1>
+      <p class="subtitle">시사 · 국제정세, 정치, 경제 뉴스와 사회 변화</p>
+    </section>
 
-      <a class="sub-card" href="global-news.html">
-        <h3>Global News</h3>
+    <!--
+      [수정 위치 1]
+      여기부터가 이 하위 페이지의 항목 버튼입니다.
+      항목을 늘리려면 아래 카드 한 덩어리를 복사해서 </section> 위에 붙이면 됩니다.
+
+      <a class="card" href="새파일이름.html">
+        <h2>새 버튼 제목</h2>
+        <p>새 버튼 설명</p>
+      </a>
+
+      항목을 줄이려면 필요 없는 <a class="card"> ... </a> 한 덩어리를 삭제하면 됩니다.
+      href="파일명.html"과 실제 만든 파일명이 반드시 같아야 합니다.
+    -->
+    <section class="grid">
+      <a class="card" href="global-news.html">
+        <h2>Global News</h2>
         <p>세계 주요 뉴스</p>
       </a>
 
-      <a class="sub-card" href="geopolitics.html">
-        <h3>Geopolitics</h3>
+      <a class="card" href="geopolitics.html">
+        <h2>Geopolitics</h2>
         <p>국제정치와 전략</p>
       </a>
 
-      <a class="sub-card" href="korea-issues.html">
-        <h3>Korea Issues</h3>
+      <a class="card" href="korea-issues.html">
+        <h2>Korea Issues</h2>
         <p>한국 사회와 정책</p>
       </a>
 
-      <a class="sub-card" href="technology.html">
-        <h3>Technology</h3>
+      <a class="card" href="technology.html">
+        <h2>Technology</h2>
         <p>기술 변화와 산업</p>
       </a>
 
-      <a class="sub-card" href="energy.html">
-        <h3>Energy</h3>
+      <a class="card" href="energy.html">
+        <h2>Energy</h2>
         <p>에너지와 자원</p>
       </a>
 
-      <a class="sub-card" href="security.html">
-        <h3>Security</h3>
+      <a class="card" href="security.html">
+        <h2>Security</h2>
         <p>안보와 분쟁</p>
       </a>
 
-      <a class="sub-card" href="marine-research.html">
-        <h3>Marine Research</h3>
+      <a class="card" href="marine-research.html">
+        <h2>Marine Research</h2>
         <p>해양 조사</p>
       </a>
 
-      <a class="sub-card" href="marine-research.html">
-        <h3>Marine Research</h3>
-        <p>해양 조사</p>
-      </a>
-
-      <!-- 
-        새 항목 추가는 반드시 여기, </main> 위에 넣으세요.
-
-        <a class="sub-card" href="새파일.html">
-          <h3>새 버튼 제목</h3>
-          <p>새 버튼 설명</p>
-        </a>
+      <!--
+        [새 항목 추가 위치]
+        새 버튼은 반드시 이 주석 아래, 그리고 </section> 위에 넣으세요.
       -->
+    </section>
 
-    </main>
+    <a class="back-link" href="index.html">← Back</a>
+  </main>
 
-    <a class="back-button" href="index.html">← Back</a>
-
-  </div>
+  <footer>
+    © JK Economics · GitHub Pages
+  </footer>
 </body>
 </html>
