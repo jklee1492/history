@@ -69,13 +69,15 @@
     }
 
     main {
+      width: min(1180px, calc(100% - 48px));
       min-height: calc(100vh - 74px);
-      padding: 66px 64px 80px;
+      margin: 0 auto;
+      padding: 56px 0 80px;
     }
 
     .hero {
       max-width: 780px;
-      margin-bottom: 54px;
+      margin: 0 0 36px;
     }
 
     .eyebrow {
@@ -103,11 +105,11 @@
     }
 
     .breadcrumb {
-      margin: 0 auto 28px;
-      max-width: 980px;
+      margin: 0 0 30px;
       font-size: 22px;
       font-weight: 900;
       color: rgba(255,255,255,.95);
+      text-shadow: 0 3px 8px rgba(0,0,0,.65);
     }
 
     .breadcrumb a {
@@ -118,7 +120,7 @@
 
     .grid {
       width: min(980px, 100%);
-      margin: 0 auto;
+      margin: 0;
       display: grid;
       grid-template-columns: repeat(3, minmax(220px, 1fr));
       gap: 14px;
@@ -160,7 +162,7 @@
 
     .back-link {
       display: inline-block;
-      margin: 28px auto 0;
+      margin: 28px 0 0;
       color: white;
       text-decoration: none;
       border: 1px solid rgba(255,255,255,.55);
@@ -181,7 +183,7 @@
     @media (max-width: 900px) {
       header { padding: 16px 22px; align-items: flex-start; flex-direction: column; }
       nav { gap: 12px; font-size: 13px; justify-content: flex-start; }
-      main { padding: 46px 22px 64px; }
+      main { width: min(100% - 44px, 1180px); padding: 42px 0 64px; }
       .grid { grid-template-columns: repeat(2, minmax(180px, 1fr)); }
     }
 
@@ -264,11 +266,6 @@
       <a class="card" href="marine-research.html">
         <h2>Marine Research</h2>
         <p>해양 조사</p>
-      </a>
-
-      <a class="card" href="employment.html">
-        <h2>employment</h2>
-        <p>취업률</p>
       </a>
 
       <!--
