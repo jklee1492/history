@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>What is Economics?</title>
+  <title>JK Economics</title>
   <style>
     * { box-sizing: border-box; }
 
@@ -16,11 +16,7 @@
     }
 
     body {
-      margin: 0;
       min-height: 100vh;
-      font-family: Arial, Helvetica, sans-serif;
-      color: #fff;
-    
       background:
         linear-gradient(rgba(3, 11, 21, .45), rgba(3, 11, 21, .60)),
         url("home_background.png") center / cover no-repeat fixed;
@@ -30,10 +26,11 @@
       position: sticky;
       top: 0;
       z-index: 10;
-      height: 74px;
+      min-height: 74px;
       display: flex;
       align-items: center;
       justify-content: space-between;
+      gap: 20px;
       padding: 0 44px;
       background: rgba(3, 10, 18, .92);
       border-bottom: 1px solid rgba(255,255,255,.08);
@@ -47,12 +44,15 @@
       color: white;
       text-decoration: none;
       text-shadow: 0 2px 8px rgba(0,0,0,.6);
+      white-space: nowrap;
     }
 
     nav {
       display: flex;
       gap: 24px;
       align-items: center;
+      flex-wrap: wrap;
+      justify-content: flex-end;
       font-size: 15px;
       font-weight: 800;
     }
@@ -63,7 +63,10 @@
       opacity: .95;
     }
 
-    nav a:hover { opacity: 1; text-decoration: underline; }
+    nav a:hover {
+      opacity: 1;
+      text-decoration: underline;
+    }
 
     main {
       min-height: calc(100vh - 74px);
@@ -71,7 +74,7 @@
     }
 
     .hero {
-      max-width: 760px;
+      max-width: 780px;
       margin-bottom: 54px;
     }
 
@@ -94,28 +97,23 @@
     .subtitle {
       font-size: 20px;
       line-height: 1.55;
-      max-width: 760px;
+      max-width: 780px;
       font-weight: 700;
       text-shadow: 0 2px 8px rgba(0,0,0,.7);
     }
 
     .breadcrumb {
-      display: none;
       margin: 0 auto 28px;
       max-width: 980px;
       font-size: 22px;
       font-weight: 900;
       color: rgba(255,255,255,.95);
-    }  
+    }
 
-    .breadcrumb button {
-      border: 0;
-      background: transparent;
+    .breadcrumb a {
       color: white;
-      font: inherit;
-      cursor: pointer;
-      padding: 0;
       text-decoration: underline;
+      text-underline-offset: 4px;
     }
 
     .grid {
@@ -131,20 +129,18 @@
       padding: 24px 24px;
       border-radius: 10px;
       border: 1px solid rgba(230, 242, 255, .35);
-      background:
-        linear-gradient(135deg, rgba(10, 35, 65, .86), rgba(20, 48, 77, .68));
+      background: linear-gradient(135deg, rgba(10, 35, 65, .86), rgba(20, 48, 77, .68));
       box-shadow: 0 14px 28px rgba(0,0,0,.24);
       color: white;
       text-align: left;
-      cursor: pointer;
+      text-decoration: none;
       transition: transform .16s ease, background .16s ease, border-color .16s ease;
     }
 
     .card:hover {
       transform: translateY(-3px);
       border-color: rgba(255,255,255,.75);
-      background:
-        linear-gradient(135deg, rgba(18, 55, 95, .94), rgba(30, 70, 105, .76));
+      background: linear-gradient(135deg, rgba(18, 55, 95, .94), rgba(30, 70, 105, .76));
     }
 
     .card h2 {
@@ -162,21 +158,17 @@
       font-weight: 650;
     }
 
-    .back {
-      display: none;
+    .back-link {
+      display: inline-block;
       margin: 28px auto 0;
-      width: min(980px, 100%);
-    }
-
-    .back button {
+      color: white;
+      text-decoration: none;
       border: 1px solid rgba(255,255,255,.55);
       background: rgba(7,17,29,.82);
-      color: white;
       border-radius: 8px;
       padding: 16px 24px;
       font-size: 18px;
       font-weight: 900;
-      cursor: pointer;
     }
 
     footer {
@@ -187,17 +179,14 @@
     }
 
     @media (max-width: 900px) {
-      header { padding: 0 22px; }
-      nav { gap: 12px; font-size: 13px; flex-wrap: wrap; justify-content: flex-end; }
+      header { padding: 16px 22px; align-items: flex-start; flex-direction: column; }
+      nav { gap: 12px; font-size: 13px; justify-content: flex-start; }
       main { padding: 46px 22px 64px; }
       .grid { grid-template-columns: repeat(2, minmax(180px, 1fr)); }
     }
 
     @media (max-width: 560px) {
-      header { height: auto; min-height: 74px; align-items: flex-start; flex-direction: column; padding: 18px 18px; gap: 12px; }
       .brand { font-size: 28px; }
-      nav { justify-content: flex-start; }
-      main { min-height: calc(100vh - 118px); }
       .grid { grid-template-columns: 1fr; }
       .card { min-height: 104px; }
     }
@@ -205,244 +194,64 @@
 </head>
 <body>
   <header>
-    <a class="brand" href="./">JK Economics</a>
+    <a class="brand" href="index.html">JK Economics</a>
     <nav>
-      <a href="./">Home</a>
-      <a href="#current-affairs">Current Affairs</a>
-      <a href="#economics">Economics</a>
-      <a href="#astronomy">Astronomy</a>
-      <a href="#biology">Biology</a>
-      <a href="#geography">Geography</a>
-      <a href="#history">History</a>
+      <a href="index.html">Home</a>
+      <a href="current-affairs.html">Current Affairs</a>
+      <a href="economics.html">Economics</a>
+      <a href="astronomy.html">Astronomy</a>
+      <a href="biology.html">Biology</a>
+      <a href="geography.html">Geography</a>
+      <a href="history.html">History</a>
     </nav>
   </header>
 
   <main>
     <section class="hero">
-      <p class="eyebrow" id="eyebrow">What is Economics?</p>
-      <h1 id="title">Economics<br>for Real Life</h1>
-      <p class="subtitle" id="subtitle">
+      <p class="eyebrow">What is Economics?</p>
+      <h1>Economics<br>for Real Life</h1>
+      <p class="subtitle">
         From Micro, Macro, International and Economic History<br>
         A Systematically Organized Space for Economics.
       </p>
     </section>
 
-    <div class="breadcrumb" id="breadcrumb"></div>
-    <section class="grid" id="grid"></section>
-
-    <div class="back" id="back">
-      <button type="button" onclick="goBack()">← Back</button>
-    </div>
+    <!--
+      [수정 위치 1]
+      홈페이지의 큰 버튼 6개입니다.
+      이제 각 버튼은 index.html 안에서 펼쳐지지 않고,
+      current-affairs.html, economics.html 같은 하위 페이지로 이동합니다.
+    -->
+    <section class="grid">
+      <a class="card" href="current-affairs.html">
+        <h2>Current Affairs</h2>
+        <p>시사 · 국제정세, 정치, 경제 뉴스와 사회 변화</p>
+      </a>
+      <a class="card" href="economics.html">
+        <h2>Economics</h2>
+        <p>경제 · 미시, 거시, 국제경제, 금융과 경제사</p>
+      </a>
+      <a class="card" href="astronomy.html">
+        <h2>Astronomy</h2>
+        <p>천문 · 우주, 행성, 별, 은하와 탐사</p>
+      </a>
+      <a class="card" href="biology.html">
+        <h2>Biology</h2>
+        <p>생물학 · 생명, 진화, 세포, 인체와 생태계</p>
+      </a>
+      <a class="card" href="geography.html">
+        <h2>Geography</h2>
+        <p>지리학 · 지형, 기후, 지도, 문명과 교통로</p>
+      </a>
+      <a class="card" href="history.html">
+        <h2>History</h2>
+        <p>역사학 · 고대, 중세, 근대, 현대와 문명사</p>
+      </a>
+    </section>
   </main>
 
   <footer>
-    © JK Economics · GitHub Pages Structure: jklee1492.github.io/history/
+    © JK Economics · GitHub Pages
   </footer>
-
-  <script>
-    const data = {
-      "current-affairs": {
-        title: "Current Affairs",
-        ko: "시사",
-        desc: "국제정세, 정치, 경제 뉴스와 사회 변화",
-        children: {
-          "global-news": ["Global News", "세계 주요 뉴스"],
-          "geopolitics": ["Geopolitics", "국제정치와 전략"],
-          "korea": ["Korea Issues", "한국 사회와 정책"],
-          "technology": ["Technology", "기술 변화와 산업"],
-          "energy": ["Energy", "에너지와 자원"],
-          "security": ["Security", "안보와 분쟁"]
-        }
-      },
-      "economics": {
-        title: "Economics",
-        ko: "경제",
-        desc: "미시, 거시, 국제경제, 금융과 경제사",
-        children: {
-          "microeconomics": ["Microeconomics", "소비자, 기업, 시장"],
-          "macroeconomics": ["Macroeconomics", "GDP, 물가, 실업, 경기"],
-          "international-economics": ["International Economics", "무역, 환율, 세계화"],
-          "money-banking": ["Money & Banking", "화폐, 은행, 금리"],
-          "market-structure": ["Market Structure", "독점, 과점, 경쟁"],
-          "economic-history": ["Economic History", "경제사와 제도"]
-        }
-      },
-      "astronomy": {
-        title: "Astronomy",
-        ko: "천문",
-        desc: "우주, 행성, 별, 은하와 탐사",
-        children: {
-          "solar-system": ["Solar System", "태양계와 행성"],
-          "stars": ["Stars", "별의 탄생과 죽음"],
-          "galaxies": ["Galaxies", "은하와 우주 구조"],
-          "cosmology": ["Cosmology", "빅뱅과 우주론"],
-          "space-exploration": ["Space Exploration", "우주 탐사"],
-          "voyager": ["Voyager", "보이저의 여행"]
-        }
-      },
-      "biology": {
-        title: "Biology",
-        ko: "생물학",
-        desc: "생명, 진화, 세포, 인체와 생태계",
-        children: {
-          "cell-biology": ["Cell Biology", "세포의 구조와 기능"],
-          "genetics": ["Genetics", "유전과 DNA"],
-          "evolution": ["Evolution", "진화와 자연선택"],
-          "human-body": ["Human Body", "인체와 생리"],
-          "ecology": ["Ecology", "생태계와 환경"],
-          "microbiology": ["Microbiology", "미생물과 바이러스"]
-        }
-      },
-      "geography": {
-        title: "Geography",
-        ko: "지리학",
-        desc: "지형, 기후, 지도, 문명과 교통로",
-        children: {
-          "physical-geography": ["Physical Geography", "지형과 자연환경"],
-          "climate": ["Climate", "기후와 대기"],
-          "maps": ["Maps", "지도와 지리 정보"],
-          "silk-road": ["Silk Road", "실크로드와 교통로"],
-          "regions": ["Regions", "세계 지역 연구"],
-          "resources": ["Resources", "자원과 인구"]
-        }
-      },
-      "history": {
-        title: "History",
-        ko: "역사학",
-        desc: "고대, 중세, 근대, 현대와 문명사",
-        children: {
-          "ancient-history": ["Ancient History", "고대 문명과 제국"],
-          "medieval-history": ["Medieval History", "중세 세계"],
-          "early-modern": ["Early Modern", "대항해 시대와 근대 초"],
-          "modern-history": ["Modern History", "근현대 세계"],
-          "economic-history": ["Economic History", "경제와 제도의 역사"],
-          "biography": ["Biography", "역사 인물"]
-        }
-      }
-    };
-
-    const thirdLevel = {
-      default: [
-        ["Overview", "전체 개요"],
-        ["Timeline", "연표와 흐름"],
-        ["Key Concepts", "핵심 개념"],
-        ["Major Cases", "대표 사례"],
-        ["Maps & Charts", "지도와 도표"],
-        ["Readings", "자료와 읽을거리"]
-      ]
-    };
-
-    let current = { level: 1, category: null, sub: null };
-
-    function cardHTML(title, desc, onclick) {
-      return `
-        <button class="card" type="button" onclick="${onclick}">
-          <h2>${title}</h2>
-          <p>${desc}</p>
-        </button>`;
-    }
-
-    function renderHome() {
-      current = { level: 1, category: null, sub: null };
-      document.getElementById("eyebrow").textContent = "What is Economics?";
-      document.getElementById("title").innerHTML = "Economics<br>for Real Life";
-      document.getElementById("subtitle").innerHTML =
-        "From Micro, Macro, International and Economic History<br>A Systematically Organized Space for Economics.";
-      document.getElementById("breadcrumb").style.display = "none";
-      document.getElementById("back").style.display = "none";
-    
-      const grid = document.getElementById("grid");
-      grid.innerHTML = Object.entries(data).map(([key, item]) =>
-        cardHTML(item.title, `${item.ko} · ${item.desc}`, `renderSecond('${key}')`)
-      ).join("");
-    }
-    function renderSecond(categoryKey) {
-      const item = data[categoryKey];
-      current = { level: 2, category: categoryKey, sub: null };
-      location.hash = categoryKey;
-
-      document.getElementById("eyebrow").textContent = item.ko;
-      document.getElementById("title").innerHTML = item.title;
-      document.getElementById("subtitle").textContent = item.desc;
-      document.getElementById("breadcrumb").style.display = "block";
-      document.getElementById("breadcrumb").innerHTML =
-        `<button onclick="renderHome()">Home</button> / ${item.title}`;
-      document.getElementById("back").style.display = "block";
-
-      const grid = document.getElementById("grid");
-      grid.innerHTML = Object.entries(item.children).map(([key, value]) =>
-        cardHTML(value[0], value[1], `renderThird('${categoryKey}', '${key}')`)
-      ).join("");
-    }
-
-    function renderThird(categoryKey, subKey) {
-      const item = data[categoryKey];
-      const sub = item.children[subKey];
-      current = { level: 3, category: categoryKey, sub: subKey };
-      location.hash = `${categoryKey}/${subKey}`;
-
-      document.getElementById("eyebrow").textContent = item.title;
-      document.getElementById("title").innerHTML = sub[0];
-      document.getElementById("subtitle").textContent = sub[1];
-      document.getElementById("breadcrumb").style.display = "block";
-      document.getElementById("breadcrumb").innerHTML =
-        `<button onclick="renderHome()">Home</button> / <button onclick="renderSecond('${categoryKey}')">${item.title}</button> / ${sub[0]}`;
-      document.getElementById("back").style.display = "block";
-
-      const grid = document.getElementById("grid");
-      grid.innerHTML = thirdLevel.default.map(([title, desc], index) =>
-        cardHTML(title, desc, `openFinal('${categoryKey}', '${subKey}', ${index})`)
-      ).join("");
-    }
-
-    function openFinal(categoryKey, subKey, index) {
-      const category = data[categoryKey];
-      const sub = category.children[subKey];
-      const final = thirdLevel.default[index];
-
-      document.getElementById("eyebrow").textContent = `${category.title} / ${sub[0]}`;
-      document.getElementById("title").innerHTML = final[0];
-      document.getElementById("subtitle").textContent =
-        `${final[1]} 페이지입니다. 여기에 본문, 이미지, 지도, 표, 그래프를 넣으면 됩니다.`;
-      document.getElementById("breadcrumb").innerHTML =
-        `<button onclick="renderHome()">Home</button> / <button onclick="renderSecond('${categoryKey}')">${category.title}</button> / <button onclick="renderThird('${categoryKey}', '${subKey}')">${sub[0]}</button> / ${final[0]}`;
-
-      document.getElementById("grid").innerHTML = `
-        <article class="card" style="grid-column: 1 / -1; cursor: default;">
-          <h2>${final[0]}</h2>
-          <p>
-            이 영역이 실제 글이 들어갈 자리입니다.<br>
-            예: ${category.ko} → ${sub[0]} → ${final[0]} 본문.
-          </p>
-        </article>
-      `;
-      current.level = 4;
-    }
-
-    function goBack() {
-      if (current.level === 4) {
-        renderThird(current.category, current.sub);
-      } else if (current.level === 3) {
-        renderSecond(current.category);
-      } else {
-        renderHome();
-      }
-    }
-
-    function routeFromHash() {
-      const hash = location.hash.replace("#", "");
-      if (!hash) return renderHome();
-
-      const parts = hash.split("/");
-      if (parts.length === 1 && data[parts[0]]) return renderSecond(parts[0]);
-      if (parts.length === 2 && data[parts[0]] && data[parts[0]].children[parts[1]]) {
-        return renderThird(parts[0], parts[1]);
-      }
-      renderHome();
-    }
-
-    window.addEventListener("hashchange", routeFromHash);
-    routeFromHash();
-  </script>
 </body>
 </html>
