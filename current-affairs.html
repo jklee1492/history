@@ -1,1 +1,196 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <!-- [수정 위치 1] 브라우저 탭 제목 -->
+  <title>Current Affairs | JK Economics</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Arial, Helvetica, sans-serif;
+      color: white;
+
+      /*
+        [수정 위치 2]
+        배경 이미지 위치입니다.
+        현재 홈페이지와 같은 배경을 쓰려면 그대로 두세요.
+        파일 위치가 다르면 url("...") 안만 바꾸면 됩니다.
+      */
+      background:
+        linear-gradient(90deg, rgba(2, 10, 22, 0.52), rgba(2, 12, 28, 0.16) 54%, rgba(2, 10, 20, 0.3)),
+        linear-gradient(180deg, rgba(0, 10, 24, 0.1), rgba(0, 10, 24, 0.58)),
+        url("assets/economics-hero.png") center / cover fixed no-repeat;
+    }
+
+    .page-wrap {
+      width: min(1180px, calc(100% - 48px));
+      margin: 0 auto;
+      padding: 36px 0 80px;
+    }
+
+    .breadcrumb {
+      margin: 0 0 22px;
+      font-size: clamp(20px, 2vw, 28px);
+      font-weight: 900;
+      text-shadow: 0 3px 5px rgba(0, 0, 0, 0.65);
+    }
+
+    .breadcrumb a {
+      color: white;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+
+    .breadcrumb span {
+      color: white;
+    }
+
+    /*
+      [수정 위치 3]
+      2번째 페이지 버튼 전체 배치입니다.
+      repeat(3, ...) → 한 줄에 3개
+      repeat(2, ...) → 한 줄에 2개
+    */
+    .sub-menu {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .sub-card {
+      min-height: 88px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 22px 26px;
+      color: white;
+      text-decoration: none;
+      border: 1px solid rgba(255, 255, 255, 0.45);
+      border-radius: 8px;
+      background: rgba(5, 27, 55, 0.78);
+      box-shadow: inset 0 0 18px rgba(80, 170, 255, 0.08);
+      transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
+    }
+
+    .sub-card:hover,
+    .sub-card:focus-visible {
+      transform: translateY(-4px);
+      border-color: rgba(110, 195, 255, 0.95);
+      background: rgba(12, 50, 88, 0.88);
+      outline: none;
+    }
+
+    .sub-card h3 {
+      margin: 0 0 9px;
+      font-size: clamp(24px, 2.3vw, 33px);
+      line-height: 1.1;
+      font-weight: 900;
+      text-shadow:
+        -1px -1px 0 rgba(0,0,0,.75),
+         1px -1px 0 rgba(0,0,0,.75),
+        -1px  1px 0 rgba(0,0,0,.75),
+         1px  1px 0 rgba(0,0,0,.75),
+         0 3px 5px rgba(0,0,0,.7);
+    }
+
+    .sub-card p {
+      margin: 0;
+      font-size: clamp(14px, 1.2vw, 17px);
+      line-height: 1.4;
+      font-weight: 800;
+      text-shadow: 0 2px 4px rgba(0,0,0,.65);
+    }
+
+    .back-button {
+      display: inline-block;
+      margin-top: 22px;
+      padding: 14px 26px;
+      color: white;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: 900;
+      border: 1px solid rgba(255, 255, 255, 0.75);
+      border-radius: 7px;
+      background: rgba(0, 14, 31, 0.72);
+    }
+
+    .back-button:hover {
+      background: rgba(255, 255, 255, 0.16);
+    }
+
+    @media (max-width: 900px) {
+      .sub-menu {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 620px) {
+      .page-wrap {
+        width: min(100% - 32px, 1180px);
+        padding-top: 28px;
+      }
+
+      .sub-menu {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page-wrap">
+
+  <div class="breadcrumb">
+      <a href="index.html">Home</a>
+      <span>/ Current Affairs</span>
+    </div>
+
+    <main class="sub-menu">
+      <a class="sub-card" href="global-news.html">
+        <h3>Global News</h3>
+        <p>세계 주요 뉴스</p>
+      </a>
+
+      <a class="sub-card" href="geopolitics.html">
+        <h3>Geopolitics</h3>
+        <p>국제정치와 전략</p>
+      </a>
+
+      <a class="sub-card" href="korea-issues.html">
+        <h3>Korea Issues</h3>
+        <p>한국 사회와 정책</p>
+      </a>
+
+      <a class="sub-card" href="technology.html">
+        <h3>Technology</h3>
+        <p>기술 변화와 산업</p>
+      </a>
+
+       <a class="sub-card" href="energy.html">
+        <h3>Energy</h3>
+        <p>에너지와 자원</p>
+      </a>
+
+      <a class="sub-card" href="security.html">
+        <h3>Security</h3>
+        <p>안보와 분쟁</p>
+      </a>
+
+      <a class="sub-card" href="security.html">
+        <h3>Marine Research</h3>
+        <p>해양 조사</p>
+      </a>
+
+    <a class="back-button" href="index.html">← Back</a>
+
+  </div>
+</body>
+</html>
