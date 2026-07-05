@@ -1,257 +1,185 @@
 <!doctype html>
-<html lang="ko">
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>JK Economics</title>
-  <style>
-    * { box-sizing: border-box; }
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>JK Economics for Real Life</title>
+<link rel="icon" type="image/png" href="favicon.png?v=1">
 
-    html, body {
-      margin: 0;
-      min-height: 100%;
-      font-family: Arial, Helvetica, sans-serif;
-      color: #fff;
-      background: #07111d;
-    }
+<style>
+body{
+    margin:0;
+    font-family:Arial, sans-serif;
+    color:white;
+}
 
-    body {
-      min-height: 100vh;
-      background:
-        linear-gradient(rgba(3, 11, 21, .45), rgba(3, 11, 21, .60)),
-        url("home_background.png") center / cover no-repeat fixed;
-    }
+.site{
+    min-height:100vh;
+    background:
+        linear-gradient(rgba(0,0,0,.35), rgba(0,0,0,.35)),
+        url("https://jklee1492.github.io/background.png.png") center / cover no-repeat;
+    background-attachment:fixed;
+}
 
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      min-height: 74px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-      padding: 0 44px;
-      background: rgba(3, 10, 18, .92);
-      border-bottom: 1px solid rgba(255,255,255,.08);
-      box-shadow: 0 8px 24px rgba(0,0,0,.25);
-    }
+header{
+    height:80px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 60px;
+    background:rgba(0,0,0,.75);
+}
 
-    .brand {
-      font-size: 34px;
-      font-weight: 900;
-      letter-spacing: -.5px;
-      color: white;
-      text-decoration: none;
-      text-shadow: 0 2px 8px rgba(0,0,0,.6);
-      white-space: nowrap;
-    }
+.brand{
+    color:white;
+    font-size:42px;
+    font-weight:bold;
+    text-decoration:none;
+}
 
-    nav {
-      display: flex;
-      gap: 24px;
-      align-items: center;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-      font-size: 15px;
-      font-weight: 800;
-    }
+nav a{
+    color:white;
+    text-decoration:none;
+    margin-left:35px;
+    font-size:22px;
+    font-weight:bold;
+}
 
-    nav a {
-      color: white;
-      text-decoration: none;
-      opacity: .95;
-    }
+main{
+    padding:90px 90px 40px;
+}
 
-    nav a:hover {
-      opacity: 1;
-      text-decoration: underline;
-    }
+.kicker{
+    font-size:30px;
+}
 
-    main {
-      min-height: calc(100vh - 74px);
-      padding: 66px 64px 80px;
-    }
+h1{
+    font-size:95px;
+    line-height:1;
+    margin:20px 0;
+}
 
-    .hero {
-      max-width: 780px;
-      margin-bottom: 54px;
-    }
+.subtitle{
+    font-size:26px;
+    line-height:1.5;
+}
 
-    .eyebrow {
-      font-size: 22px;
-      font-weight: 700;
-      margin: 0 0 22px;
-      text-shadow: 0 2px 7px rgba(0,0,0,.6);
-    }
+.card-grid{
+    margin-top:70px;
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:18px;
+    max-width:1050px;
+    margin-left:auto;
+    margin-right:auto;
+}
 
-    h1 {
-      margin: 0 0 22px;
-      font-size: clamp(48px, 6vw, 82px);
-      line-height: .95;
-      font-weight: 900;
-      letter-spacing: -2px;
-      text-shadow: 0 4px 12px rgba(0,0,0,.65);
-    }
+.topic-card{
+    min-height:150px;
+    background:rgba(15,35,65,.75);
+    border:1px solid rgba(255,255,255,.35);
+    border-radius:18px;
+    color:white;
+    text-decoration:none;
+    padding:30px;
+    box-sizing:border-box;
+    transition:.3s;
+}
 
-    .subtitle {
-      font-size: 20px;
-      line-height: 1.55;
-      max-width: 780px;
-      font-weight: 700;
-      text-shadow: 0 2px 8px rgba(0,0,0,.7);
-    }
+.topic-card:hover{
+    transform:translateY(-8px);
+    background:rgba(45,75,115,.9);
+}
 
-    .breadcrumb {
-      margin: 0 auto 28px;
-      max-width: 980px;
-      font-size: 22px;
-      font-weight: 900;
-      color: rgba(255,255,255,.95);
-    }
+.topic-card h2{
+    margin:0 0 15px;
+    font-size:32px;
+}
 
-    .breadcrumb a {
-      color: white;
-      text-decoration: underline;
-      text-underline-offset: 4px;
-    }
-
-    .grid {
-      width: min(980px, 100%);
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(3, minmax(220px, 1fr));
-      gap: 14px;
-    }
-
-    .card {
-      min-height: 116px;
-      padding: 24px 24px;
-      border-radius: 10px;
-      border: 1px solid rgba(230, 242, 255, .35);
-      background: linear-gradient(135deg, rgba(10, 35, 65, .86), rgba(20, 48, 77, .68));
-      box-shadow: 0 14px 28px rgba(0,0,0,.24);
-      color: white;
-      text-align: left;
-      text-decoration: none;
-      transition: transform .16s ease, background .16s ease, border-color .16s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-3px);
-      border-color: rgba(255,255,255,.75);
-      background: linear-gradient(135deg, rgba(18, 55, 95, .94), rgba(30, 70, 105, .76));
-    }
-
-    .card h2 {
-      margin: 0 0 12px;
-      font-size: 24px;
-      line-height: 1.05;
-      font-weight: 900;
-      text-shadow: 0 2px 6px rgba(0,0,0,.5);
-    }
-
-    .card p {
-      margin: 0;
-      font-size: 15px;
-      line-height: 1.45;
-      font-weight: 650;
-    }
-
-    .back-link {
-      display: inline-block;
-      margin: 28px auto 0;
-      color: white;
-      text-decoration: none;
-      border: 1px solid rgba(255,255,255,.55);
-      background: rgba(7,17,29,.82);
-      border-radius: 8px;
-      padding: 16px 24px;
-      font-size: 18px;
-      font-weight: 900;
-    }
-
-    footer {
-      padding: 26px 44px;
-      color: rgba(255,255,255,.72);
-      background: rgba(3, 10, 18, .9);
-      font-size: 13px;
-    }
-
-    @media (max-width: 900px) {
-      header { padding: 16px 22px; align-items: flex-start; flex-direction: column; }
-      nav { gap: 12px; font-size: 13px; justify-content: flex-start; }
-      main { padding: 46px 22px 64px; }
-      .grid { grid-template-columns: repeat(2, minmax(180px, 1fr)); }
-    }
-
-    @media (max-width: 560px) {
-      .brand { font-size: 28px; }
-      .grid { grid-template-columns: 1fr; }
-      .card { min-height: 104px; }
-    }
-  </style>
+.topic-card p{
+    margin:0;
+    font-size:20px;
+    line-height:1.4;
+}
+</style>
 </head>
+
 <body>
-  <header>
+
+<div class="site">
+
+<header>
     <a class="brand" href="index.html">JK Economics</a>
+
     <nav>
-      <a href="index.html">Home</a>
-      <a href="current-affairs.html">Current Affairs</a>
-      <a href="economics.html">Economics</a>
-      <a href="astronomy.html">Astronomy</a>
-      <a href="biology.html">Biology</a>
-      <a href="geography.html">Geography</a>
-      <a href="history.html">History</a>
+        <a href="index.html">Home</a>
+        <a href="economics.html">Economics</a>
+        <a href="history.html">History</a>
+        <a href="cosmos.html">Cosmos</a>
+        <a href="biography.html">Biography</a>
+        <a href="mossad.html">Mossad</a>
+        <a href="carl-Jung.html">Carl Jung</a>
+        <a href="#">Gallery</a>
+        <a href="#">Contact</a>
     </nav>
-  </header>
+</header>
 
-  <main>
-    <section class="hero">
-      <p class="eyebrow">What is Economics?</p>
-      <h1>Economics<br>for Real Life</h1>
-      <p class="subtitle">
+<main>
+    <p class="kicker">What is Economics?</p>
+
+    <h1>Economics<br>for Real Life</h1>
+
+    <p class="subtitle">
         From Micro, Macro, International and Economic History<br>
-        A Systematically Organized Space for Economics.
-      </p>
-    </section>
+        A Systematically Organized Space for Economics
+    </p>
 
-    <!--
-      [수정 위치 1]
-      홈페이지의 큰 버튼 6개입니다.
-      이제 각 버튼은 index.html 안에서 펼쳐지지 않고,
-      current-affairs.html, economics.html 같은 하위 페이지로 이동합니다.
-    -->
-    <section class="grid">
-      <a class="card" href="current-affairs.html">
-        <h2>Current Affairs</h2>
-        <p>시사 · 국제정세, 정치, 경제 뉴스와 사회 변화</p>
-      </a>
-      <a class="card" href="economics.html">
-        <h2>Economics</h2>
-        <p>경제 · 미시, 거시, 국제경제, 금융과 경제사</p>
-      </a>
-      <a class="card" href="astronomy.html">
-        <h2>Astronomy</h2>
-        <p>천문 · 우주, 행성, 별, 은하와 탐사</p>
-      </a>
-      <a class="card" href="biology.html">
-        <h2>Biology</h2>
-        <p>생물학 · 생명, 진화, 세포, 인체와 생태계</p>
-      </a>
-      <a class="card" href="geography.html">
-        <h2>Geography</h2>
-        <p>지리학 · 지형, 기후, 지도, 문명과 교통로</p>
-      </a>
-      <a class="card" href="history.html">
-        <h2>History</h2>
-        <p>역사학 · 고대, 중세, 근대, 현대와 문명사</p>
-      </a>
-    </section>
-  </main>
+    <section class="card-grid">
 
-  <footer>
-    © JK Economics · GitHub Pages
-  </footer>
+        <a class="topic-card" href="economics.html">
+            <h2>Economics</h2>
+            <p>Micro, Macro & International</p>
+        </a>
+
+        <a class="topic-card" href="history.html">
+            <h2>History</h2>
+            <p>Economic History</p>
+        </a>
+
+        <a class="topic-card" href="cosmos.html">
+            <h2>Cosmos</h2>
+            <p>Everything we can imagine</p>
+        </a>
+
+       <a class="topic-card" href="biography.html">
+            <h2>Biography</h2>
+            <p>A Journey to Greatness</p>
+        </a>
+
+        <a class="topic-card" href="mossad.html">
+            <h2>Mossad</h2>
+            <p>Israel's survival strategy</p>
+        </a>
+
+        <a class="topic-card" href="carl-jung.html">
+            <h2>Carl Jung</h2>
+            <p>Man and His Symbols</p>
+        </a>
+
+        <a class="topic-card" href="#">
+            <h2>Gallery</h2>
+            <p>Images & Resources</p>
+        </a>
+
+        <a class="topic-card" href="#">
+            <h2>Contact</h2>
+            <p>Questions & Feedback</p>
+        </a>
+
+    </section>
+</main>
+
+</div>
+
 </body>
 </html>
